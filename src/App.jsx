@@ -84,8 +84,8 @@ function App() {
             className="w-full h-screen md:h-screen rounded-lg shadow-lg object-cover border-2 border-black"
             videoConstraints={{
               facingMode: facingMode,
-              width: 3840,
-              height: 2160,
+              width: 2560,
+              height: 1440,
               frameRate: 60,
             }}
           />
