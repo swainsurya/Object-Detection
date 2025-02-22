@@ -75,7 +75,7 @@ function App() {
         <h2 className="text-white text-2xl md:text-3xl">Model is Loading Please Wait</h2>
       </div>
     ) : (
-      <div className="flex flex-col items-center justify-center max-h-screen md:min-h-screen bg-[url('/background.jpg')] bg-cover bg-center text-white py-2 relative">
+      <div className="flex flex-col items-center justify-center max-h-[90vh] md:min-h-screen bg-[url('/background.jpg')] bg-cover bg-center text-white relative">
         <h1 className="text-2xl md:text-3xl font-bold mb-4 text-center absolute top-4 z-10">REAL-TIME OBJECT DETECTION</h1>
         <div className="relative w-full max-w-8xl h-auto">
           <Webcam
@@ -95,7 +95,7 @@ function App() {
           />
         </div>
         <div className="mt-4 flex gap-4 absolute bottom-5">
-          <button onClick={switchCamera} className="bg-green-500 hover:bg-green-600 md:hidden px-2 rounded-md mb-5">
+          <button onClick={switchCamera} className="bg-green-500 hover:bg-green-600 md:hidden px-2 py-2 rounded-md mb-5">
             Switch Camera
           </button>
         </div>
