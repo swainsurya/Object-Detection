@@ -1,22 +1,31 @@
 // Import dependencies
-import React, { useRef,  useEffect } from "react";
+import React, { useRef,  useEffect, useState } from "react";
 import * as tf from "@tensorflow/tfjs";
 import * as cocossd from "@tensorflow-models/coco-ssd"
 import Webcam from "react-webcam";
 import { drawRect } from "./utils/drawRect";
+import { Dot, LoaderCircleIcon } from "lucide-react";
 // e.g. import { drawRect } from "./utilities";
 
 function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
+  const [loading , setLoading] = useState(false);
 
   // Main function
   const runCoco = async () => {
-    const net = await cocossd.load();
-
-    setInterval(() => {
-      detect(net);
-    }, 100);
+    setLoading(true);
+    try {
+      const net = await cocossd.load();
+      setInterval(() => {
+        detect(net);
+      }, 100);
+    } catch (error) {
+      
+    }
+    finally{
+      setLoading(false)
+    }
   };
 
   const detect = async (net) => {
@@ -53,7 +62,13 @@ function App() {
   useEffect(() => { runCoco() }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[url('/background.jpg')] bg-cover bg-center text-white p-2 relative">
+    loading? (
+      <div className="w-screen h-screen bg-zinc-800 flex flex-col items-center justify-center">
+        <LoaderCircleIcon size={64} className={`animate-spin mb-2 text-emerald-500`}/>
+        <h2 className="text-white text-2xl md:text-3xl">Model is Loading Please Wait</h2>
+      </div>
+    ) : (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-[url('/background.jpg')] bg-cover bg-center text-white p-2 relative">
       <h1 className="text-xl md:text-3xl font-bold mb-4 text-center">REAL-TIME OBJECT DETECTION</h1>
       <div className="relative w-full max-w-8xl h-auto px-2">
         <Webcam
@@ -71,6 +86,7 @@ function App() {
       </div>
       <footer className="absolute bottom-0 m-auto text-white/50">Made with ❤️ by Surya</footer>
     </div>
+    )
   );
 }
 
