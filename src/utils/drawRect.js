@@ -5,14 +5,15 @@ export const drawRect = (detections , ctx) => {
         const text = prediction['class']
 
         // set styling
-        const color = "#"+Math.floor(Math.random()*9999999).toString(16)
+        const color = "white"
         ctx.strokeStyle = color
         ctx.font = '22px sans'
+        ctx.lineWidth = 3
         ctx.fillStyle = color
 
         // Draw reactangle and text
         ctx.beginPath()
-        ctx.fillText(text,x,y)
+        ctx.fillText(text,x,y-20)
         ctx.rect(x,y,width,height)
         ctx.stroke()
     })

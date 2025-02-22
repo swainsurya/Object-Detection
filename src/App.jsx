@@ -75,13 +75,13 @@ function App() {
         <h2 className="text-white text-2xl md:text-3xl">Model is Loading Please Wait</h2>
       </div>
     ) : (
-      <div className="flex flex-col items-center justify-center max-h-screen bg-[url('/background.jpg')] bg-cover bg-center text-white py-2 relative">
-        <h1 className="text-2xl md:text-3xl font-bold mb-4 text-center absolute md:static top-4 z-10">REAL-TIME OBJECT DETECTION</h1>
-        <div className="relative w-full max-w-4xl h-auto">
+      <div className="flex flex-col items-center justify-center max-h-screen md:min-h-screen bg-[url('/background.jpg')] bg-cover bg-center text-white py-2 relative">
+        <h1 className="text-2xl md:text-3xl font-bold mb-4 text-center absolute top-4 z-10">REAL-TIME OBJECT DETECTION</h1>
+        <div className="relative w-full max-w-8xl h-auto">
           <Webcam
             ref={webcamRef}
             muted={true}
-            className="w-full h-screen md:h-[480px] rounded-lg shadow-lg object-cover"
+            className="w-full h-screen md:h-screen rounded-lg shadow-lg object-cover border-2 border-black"
             videoConstraints={{
               facingMode: facingMode,
             }}
