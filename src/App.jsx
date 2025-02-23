@@ -76,7 +76,7 @@ function App() {
       </div>
     ) : (
       <div className="flex flex-col items-center justify-center max-h-[90vh] md:min-h-screen bg-[url('/background.jpg')] bg-cover bg-center text-white relative">
-        <h1 className="text-2xl md:text-3xl font-bold mb-4 text-center absolute top-4 z-10 bg-black/30 p-2 rounded-md">REAL-TIME OBJECT DETECTION</h1>
+        <h1 className="text-2xl md:text-3xl font-bold mb-4 text-center absolute top-4 z-10 bg-black/30 p-2 rounded-md">REAL-TIME OBJECT DETECTION <span className="text-red-700">BETA</span></h1>
         <div className="relative w-full max-w-8xl h-auto">
           <Webcam
             ref={webcamRef}
@@ -84,9 +84,9 @@ function App() {
             className="w-full h-screen md:h-screen rounded-lg shadow-lg object-cover border-2 border-black"
             videoConstraints={{
               facingMode: facingMode,
-              width: 1920,
-              height: 1080,
-              frameRate: 60,
+              width: 1280,
+              height: 720,
+              frameRate: 30,
             }}
           />
           <canvas
