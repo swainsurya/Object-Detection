@@ -26,7 +26,7 @@ function App() {
       const net = await cocossd.load();
       setInterval(() => {
         detect(net);
-      }, 500);
+      }, 5);
     } catch (error) {
 
     }
